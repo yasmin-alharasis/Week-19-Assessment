@@ -64,14 +64,15 @@ let updateTask = (id, cb) => {
 
 // Q4:we have 6 errors here please fix them [6 pt]
 let deleteTask = (id, cb) => {
-  tasks.deleteOne({ ID: cb }, (err, result) => {
-    if (result) {
+  tasks.deleteOne({ ID: id }, (err, cb) => {
+    if (err) {
       console.log(err);
     } else {
-      getTasks();
+      getTasks(cb);
     }
   });
 };
+
 
 module.exports = {
   getTasks: getTasks,
